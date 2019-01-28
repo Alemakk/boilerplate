@@ -44,7 +44,7 @@ gulp.task("scripts", () => {
     .pipe(
       $webpack(
         {
-          ...require("./webpack.mpa.config"),
+          ...require("./webpack.config"),
           mode: env
         },
         webpack
