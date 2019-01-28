@@ -55,6 +55,8 @@
     "postcss-rgb": "^1.0.0",
     "postcss-scss": "^2.0.0",
     "postcss-svgo": "^2.1.6",
+    "stylelint": "^9.10.1",
+    "stylelint-config-recommended": "^2.1.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue-loader": "^14.2.3",
     "vue-template-compiler": "2.5.13",
