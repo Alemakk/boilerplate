@@ -1,6 +1,11 @@
-extends ../auth.layout.pug
+extends ../main.layout.pug
 
+block variables
+  - var title = 'Welcome Page'
+
+block scripts
+  script(src='home.bundle.js')
+  
 block content
-  .hello-world
-    +icon('portfolio_header', 'hello-world__block')
-    .inlined-svg
+  h2.hello-world Hello world
+  

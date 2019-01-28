@@ -1,28 +1,25 @@
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const env = process.env.NODE_ENV;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const env = process.env.NODE_ENV
 
 module.exports = {
   entry: {
-    about: "./src/assets/scripts/about.js",
-    auth: "./src/assets/scripts/auth.js",
-    works: "./src/assets/scripts/works.js",
-    blog: "./src/assets/scripts/blog.js"
+    home: './src/assets/scripts/home.js'
   },
   output: {
-    filename: "[name].bundle.js"
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader"
+        loader: 'eslint-loader'
       }
     ]
   },
@@ -41,8 +38,8 @@ module.exports = {
   resolve: {
     alias: {
       vue$:
-        env === "development" ? "vue/dist/vue.esm.js" : "vue/dist/vue.min.js"
+        env === 'development' ? 'vue/dist/vue.esm.js' : 'vue/dist/vue.min.js'
     }
   },
-  devtool: env === "development" ? "#eval-source-map" : ""
-};
+  devtool: env === 'development' ? '#eval-source-map' : ''
+}

@@ -1,28 +1,43 @@
-const fs = require("fs");
+const fs = require('fs')
 
 module.exports = {
-  syntax: "postcss-scss",
-  parser: "postcss-scss",
+  syntax: 'postcss-scss',
+  parser: 'postcss-scss',
   plugins: [
-    require("postcss-easy-import")({
-      extensions: ".scss"
+    require('postcss-easy-import')({
+      extensions: '.scss'
     }),
-    require("autoprefixer")({
-      browsers: ["last 2 versions"],
+    require('autoprefixer')({
+      browsers: ['last 2 versions'],
       cascade: false
     }),
-    require("postcss-advanced-variables")({
+    require('postcss-advanced-variables')({
       variables: JSON.parse(
-        fs.readFileSync("./src/assets/styles/variables.json", "utf-8")
+        fs.readFileSync('./src/assets/styles/variables.json', 'utf-8')
       )
     }),
-    require("postcss-nested"),
-    require("postcss-rgb"),
-    require("postcss-inline-svg")({
+    require('postcss-nested'),
+    require('postcss-rgb'),
+    require('postcss-inline-svg')({
       removeFill: true,
-      path: "./src/assets/images/icons"
+      path: './src/assets/images/icons'
     }),
-    require("postcss-svgo"),
-    require("cssnano")()
+    require('postcss-svgo'),
+    require('postcss-normalize')({
+      forceImport: true,
+      browsers: 'last 2 versions'
+    }),
+    require('postcss-font-magician')({
+      variants: {
+        'Roboto Condensed': {
+          '300': [],
+          '400': [],
+          '700': []
+        }
+      },
+      foundries: ['google']
+    }),
+    require('postcss-color-function')({}),
+    require('cssnano')()
   ]
-};
+}
