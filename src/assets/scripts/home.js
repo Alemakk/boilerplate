@@ -1,1 +1,5 @@
-import "./modules/example";
+import { SimpleFunc } from './modules/example'
+
+(() => {
+  SimpleFunc()
+})()
